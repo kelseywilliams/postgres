@@ -1,4 +1,7 @@
 # Postgres DB for api.kelseywilliams.co
+## Roles
+The database creates three different roles: admin, worker, and readonly.
+Admin is only used for setting up roles.  All database interactions should happen through worker or readonly.
 ## Setting up 
 ### - Docker network
 Create a docker network named ```site``` or connect the docker-compose.yml to the network of your choosing.

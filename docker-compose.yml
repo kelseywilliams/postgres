@@ -9,9 +9,8 @@ services:
             POSTGRES_PASSWORD_FILE: /run/secrets/admin_pwd
             PGDATA: /var/lib/postgresql/data/pgdata
         volumes:
-            - ./init:/docker-entrypoint-initdb.d 
+            - ./init:/docker-entrypoint-initdb.d
             - postgres_data:/var/lib/postgresql/data
-            - ./backup:/var/lib/postgresql/data
             - ./logs:/var/log/postgresql
             - ./postgres.conf:/etc/postgresql/postgresql.conf
         secrets:
