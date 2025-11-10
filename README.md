@@ -5,8 +5,10 @@ Admin is only used for setting up roles.  All database interactions should happe
 ## Setting up 
 ### - Docker network
 Create a docker network named ```site``` or connect the docker-compose.yml to the network of your choosing.
+### - init script
+Drop an 01-init.sql into the init folder in order to create tables at initialization
 ### - Backups
-Create a backups folder at /backup
+The database backups to the postgres_data docker volume
 ### - Secrets
 Create a /secrets folder with the following structure
 ```
