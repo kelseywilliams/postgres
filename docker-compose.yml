@@ -8,11 +8,15 @@ services:
             POSTGRES_USER: admin
             POSTGRES_PASSWORD_FILE: /run/secrets/admin_pwd
             PGDATA: /var/lib/postgresql/data/pgdata
+
+            POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256 --auth-local=scram-sha-256"
         volumes:
             - ./init:/docker-entrypoint-initdb.d
             - postgres_data:/var/lib/postgresql/data
             - ./logs:/var/log/postgresql
             - ./postgres.conf:/etc/postgresql/postgresql.conf
+            - ./pg_hba.conf:/etc/postgresql/pg_hba.conf:ro
+        command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
         secrets:
             - admin_pwd
             - user_pwd

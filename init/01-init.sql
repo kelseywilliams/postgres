@@ -9,9 +9,11 @@ create table if not exists users (
     updated_at timestamp with time zone default current_timestamp
 );
 
-CREATE TABLE IF NOT EXISTS world_chat_messages (
+CREATE TABLE IF NOT EXISTS chats (
     id          BIGSERIAL PRIMARY KEY,
-    user_id     BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    ulid        char(26) not null unique,
+    room        varchar(64) not null,
+    username    varchar(100) not null,
     content     TEXT NOT NULL,
     created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     deleted_at  TIMESTAMPTZ
