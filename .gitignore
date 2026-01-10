@@ -1,5 +1,4 @@
 .env
 .env.*
-/secrets/
-/backup/
+secrets/
 *.sql
