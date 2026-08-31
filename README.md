@@ -1,4 +1,6 @@
-# Postgres DB for api.kelseywilliams.co
+# Postgres DB for api.kelseywilliams.co [RETIRED]
+[NOTE]
+This repository has been retired as the official Postgres database for kelseywilliams.co.  The new postgres database is managed by the cluster at https://github.com/kelseywilliams/infra
 ## Roles
 The database creates three different roles: admin, worker, and readonly.
 Admin is only used for setting up roles.  All database interactions should happen through worker or readonly.
